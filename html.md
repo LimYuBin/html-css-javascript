@@ -158,8 +158,10 @@ _자동완성 : ! + Tab키_
 ```html
 <article>
   <header>
-    작성자:<a href="">나그네</a> at
-    <time datetime="2013-01-22T08:45">2013년1월22일 08:45</time>
+    <p>
+      작성자:<a href="">나그네</a> at
+      <time datetime="2013-01-22T08:45">2013년1월22일 08:45</time>
+    </p>
   </header>
   <p>코멘트 내용</p>
 </article>
