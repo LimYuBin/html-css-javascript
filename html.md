@@ -193,6 +193,109 @@ _자동완성 : ! + Tab키_
 - &#60;mark>: 하이라이팅
 - &#60;q>: 따옴표
 
+---
+
+- &#60;audio>: 오디오 삽입
+  - 속성: controls(콘트롤 생성) autoplay(자동 재생)
+- &#60;video>: 비디오 삽입
+  - 속성: controls(콘트롤 생성) autoplay(자동 재생) loop(반복 재생)
+- &#60;iframe>: html 페이지 내에 html 페이지 삽입
+
+```html
+<iframe src="http://www.etnews.com" name="left" width="200" height="300">
+</iframe>
+<iframe src="http://www.w3c.org" name="right" width="300" height="300">
+</iframe>
+```
+
+- &#60;figure> & &#60;figcaption>
+  - &#60;figure>: 사진, 도표, 삽화, 오디오, 비디오, 코드 등을 담는 컨테이너 역할을 하는 태그
+  - &#60;figcaption>: &#60;figure>를 설명하는 태그
+
+```html
+<figure>
+  <img src="img/SteveJobs.jpg" alt="스티브 잡스 이미지" width="300px" />
+  <figcaption>스티븐 폴 잡스 (Steven Paul Jobs)</figcaption>
+</figure>
+```
+
+- &#60;details> & &#60;summary>
+  - &#60;details>: 상세 정보를 담는 시맨틱 블록 태그
+  - &#60;summary>: &#60;details>로 구성되는 블록의 제목 표현
+
+```html
+<article id="say">
+  <h2>어록</h2>
+  <details>
+    <summary>어록1</summary>
+    <p>Stay hungry, Stay foolish</p>
+  </details>
+  <details>
+    <summary>어록2</summary>
+    <p>"One more thing..."</p>
+  </details>
+</article>
+```
+
+- &#60;table> : 표 전체
+  - &#60;caption> : 표 제목
+  - &#60;thead> : 헤딩 셀 그룹
+  - &#60;tfoot> : 바닥 셀 그룹
+  - &#60;tbody> : 데이터 셀 그룹
+  - &#60;tr> : 행. 여러 <td>, <th>포함
+  - &#60;th> : 열 제목(헤딩) 셀
+  - &#60;td> : 데이터 셀
+
+```html
+<h2>코로나 환자 현황</h2>
+<a id="corona_tbl"></a>
+<table border="1">
+  <caption>
+    코로나 지역별 발생동향
+  </caption>
+  <thead>
+    <tr>
+      <th>시도명</th>
+      <th>누적확진환자</th>
+      <th>격리중</th>
+      <th>격리해제</th>
+    </tr>
+  </thead>
+
+  <tfoot>
+    <tr>
+      <th>합계</th>
+      <th>21,117</th>
+      <th>4,697</th>
+      <th>16,146</th>
+    </tr>
+  </tfoot>
+
+  <tbody>
+    <tr>
+      <td>서울</td>
+      <td>4,314</td>
+      <td>2,036</td>
+      <td>2,235</td>
+    </tr>
+
+    <tr>
+      <td>대구</td>
+      <td>7,082</td>
+      <td>106</td>
+      <td>6,785</td>
+    </tr>
+
+    <tr>
+      <td>경기</td>
+      <td>3,625</td>
+      <td>1,221</td>
+      <td>2,359</td>
+    </tr>
+  </tbody>
+</table>
+```
+
 # 참고자료
 
 https://heropy.blog/2019/05/26/html-elements/  
