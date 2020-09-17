@@ -200,12 +200,27 @@ _자동완성 : ! + Tab키_
 - &#60;video>: 비디오 삽입
   - 속성: controls(콘트롤 생성) autoplay(자동 재생) loop(반복 재생)
 - &#60;iframe>: html 페이지 내에 html 페이지 삽입
+  - &#60;a>에서 target 속성에 &#60;iframe>의 name 적어주면 &#60;iframe>의 그 위치에서 열림
 
 ```html
-<iframe src="http://www.etnews.com" name="left" width="200" height="300">
-</iframe>
-<iframe src="http://www.w3c.org" name="right" width="300" height="300">
-</iframe>
+<ul>
+  <li><a href="section1.html" target="right">HTML 태그</a></li>
+  <li><a href="section2.html" target="right">추천 영화</a></li>
+  <li><a href="section3.html" target="right">추천 여행지</a></li>
+  <li>
+    <a href="http://lms.mju.ac.kr/ilos/main/main_form.acl" target="_blank"
+      >명지대학교 LMS</a
+    >
+  </li>
+</ul>
+<iframe
+  src="nav.html"
+  name="left"
+  frameborder="1"
+  width="300px"
+  height="700px"
+></iframe>
+<iframe name="right" frameborder="1" width="700px" height="700px"></iframe>
 ```
 
 - &#60;figure> & &#60;figcaption>
@@ -247,50 +262,29 @@ _자동완성 : ! + Tab키_
   - &#60;td> : 데이터 셀
 
 ```html
-<h2>코로나 환자 현황</h2>
-<a id="corona_tbl"></a>
-<table border="1">
-  <caption>
-    코로나 지역별 발생동향
-  </caption>
+<h2>HTML 태그</h2>
+<table border>
   <thead>
-    <tr>
-      <th>시도명</th>
-      <th>누적확진환자</th>
-      <th>격리중</th>
-      <th>격리해제</th>
-    </tr>
+    <th>태그명</th>
+    <th>태그설명</th>
   </thead>
-
-  <tfoot>
-    <tr>
-      <th>합계</th>
-      <th>21,117</th>
-      <th>4,697</th>
-      <th>16,146</th>
-    </tr>
-  </tfoot>
 
   <tbody>
     <tr>
-      <td>서울</td>
-      <td>4,314</td>
-      <td>2,036</td>
-      <td>2,235</td>
+      <th>&lt;html&gt; ~ &lt;/html&gt;</th>
+      <td>문서의 시작과 끝을 나타내는 태그</td>
     </tr>
-
     <tr>
-      <td>대구</td>
-      <td>7,082</td>
-      <td>106</td>
-      <td>6,785</td>
+      <th>&lt;head&gt; ~ &lt;/head&gt;</th>
+      <td>웹 페이지에 나타나지 않는 웹 문서에 대한 설명</td>
     </tr>
-
     <tr>
-      <td>경기</td>
-      <td>3,625</td>
-      <td>1,221</td>
-      <td>2,359</td>
+      <th>&lt;body&gt; ~ &lt;/body&gt;</th>
+      <td>웹 페이지에 나타날 문서의 내용</td>
+    </tr>
+    <tr>
+      <th>&lt;br&gt;</th>
+      <td>줄 바꿈 태그</td>
     </tr>
   </tbody>
 </table>
