@@ -19,14 +19,37 @@
    </head>
 
    <!--<link> 태그로 연결-->
-   <link rel="stylesheet" href="" />
+   <link href="" type="text/css" rel="stylesheet" />
    ```
 
 2. 태그 안의 속성 이용
+
    - 여러 style을 적용하고 싶을 때에는 세미콜론(;) 사용
+
    ```html
    <a href="" style="color:red;text-decoration:underline"></a>
    ```
+
+3. 우선순위 (높은순서)
+
+- style 속성에 선언된 스타일 (inline)
+- &#60;style>&#60;/style> 태그에 선언된 스타일 (internal)
+- .css 파일에 선언된 스타일 (external)
+- 브라우저의 디폴트 스타일
+
+# CSS3의 표준 단위
+
+| 단위  |             의미              |
+| ----- | :---------------------------: |
+| `em`  |             배수              |
+| `%`   |            퍼센트             |
+| `px`  |            픽셀 수            |
+| `cm`  |           센티미터            |
+| `mm`  |           밀리미터            |
+| `in`  |   인치, 1in = 2.54cm = 96px   |
+| `pt`  | 포인터, 1pt = 1in의 1/72 크기 |
+| `pc`  |   피카소(picas), 1pc = 12pt   |
+| `deg` |             각도              |
 
 # 기본문법
 
@@ -38,6 +61,17 @@
 - `Tag` : 특정 태그만
 
   - `:state` : Tag 옆에 state 지정 가능
+    | 셀렉터 | 설명 |
+    | ---------- | :--------------------------------------------------: |
+    | `:hover` | 마우스가 올라갈 때 스타일 적용 |
+    | `:active` | 마우스로 누르고 있는 상황에서 스타일 적용 |
+    | `:focus` | 폼 요소가 키보드나 마우스 클릭으로 포커스를 받을 때 스타일 적용 |
+    | `:link` | 방문하지 않은 링크에 스타일 적용 |
+    | `:visited` | 방문한 링크에 스타일 적용 |
+    | `:first-letter` | 블록형 태그의 첫 글자에 스타일 적용 |
+    | `:first-line` | 블록형 태그의 첫 라인에 스타일 적용 |
+    | `:nth-child(even)` | 짝수 번째 모든 자식 태그에 스타일 적용 |
+    | `:nth-child(1)` | 첫 번째 자식 태그에 스타일 적용 |
 
     ```css
     button:hover {
@@ -52,8 +86,34 @@
     }
     ```
 
-- `#id` : 특정 id만
-- `.class` : 특정 class만
+- `#id` : 특정 id만, 유일하게 적용할 때 사용
+  - tag명#id명 하면 그 tag의 id만 적용
+- `.class` : 특정 class만, 여러 태그를 하나의 그룹으로 묶어 적용할 때 사용
+  - tag명.class명 하면 그 tag의 class만 적용
+- 자식 셀렉터 : >, 직계인 경우 사용
+- 자손 셀렉터 : 나열
+
+# 색 관련 Property
+
+- color: 색; (텍스트 글자색)
+- background-color: 색; (배경 색)
+- border-color: 색; (테두리 색)
+
+# 텍스트 꾸미기 Property
+
+- text-indent: &#60;length> | &#60;percentage>; (들여쓰기)
+- text-align: left | right | center | justify; (정렬)
+- text-decoration: none | underline | overline | line-through; (텍스트 꾸미기)
+
+# 폰트 Property
+
+- font : font-style font-weight font-size font-family;
+  - font-size, font-family 외 생략 가능
+- font-size:40px; (폰트 크기)
+- font-family: Arial, "Times New Roman", Serif; (폰트 종류 선언)
+  - 콤마로 나열, Arial 폰트가 없는 경우 "Times New Roman", "Times New Roman"이 없는 경우 Serif
+- font-style: italic; (폰트 스타일)
+- font-weight: 300; (폰트 굵기)
 
 # Box 모델
 

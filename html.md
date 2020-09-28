@@ -49,9 +49,7 @@ _자동완성 : ! + Tab키_
 # Default Display 속성
 
 - block 레벨 tag : 줄 단위
-  - 예 : &#60;div>, &#60;p>, &#60;li>, &#60;ul>, &#60;ol>, &#60;header>, &#60;footer>, &#60;nav>, &#60;selection>, &#60;article>, &#60;aside>, &#60;video>, &#60;audio>, &#60;map>, &#60;canvas>, &#60;table>, &#60;form> 등
 - inline 레벨 tag : 공간이 허용되면 다른 tag 옆에 배치
-  - 예 : &#60;a>, &#60;span>, &#60;button>, &#60;input>, &#60;label>, &#60;img>, &#60;map> 등
 
 # &#60;link />
 
@@ -173,6 +171,130 @@ _자동완성 : ! + Tab키_
 - 보통 광고나 기타 링크 등의 Side bar를 설정
 - block 레벨
 
+# 폼 (Form)
+
+- 웹 폼: 웹 페이지에서 사용자 입력을 받는 폼
+- &#60;form>
+  - 폼 생성
+    | 속성 | 의미 | 값 |
+    | ---------- | :--------------------------------------------------: | -----------------------: |
+    | `action` | 폼 데이터를 처리할 웹 서버 응용프로그램 URL | URL |
+    | `target` | 웹 서버 응용 프로그램으로부터 전송받은 데이터 | 윈도우 이름 |
+    | `name` | 폼 이름 | 텍스트|
+    | `method` | 폼 데이터를 웹 서버로 전송하는 방식 | `Get, POST` |
+- 폼 요소
+- &#60;input type="text | password">
+  - 한줄 텍스트 입력 창
+    | 속성 | 의미 | 값 |
+    | ---------- | :--------------------------------------------------: | -----------------------: |
+    | `name` | 요소 이름 | 텍스트|
+    | `maxlength` | 입력할 수 있는 문자의 최대 개수 | 숫자|
+    | `size` | 입력창의 크기(문자 개수) | 숫자|
+    | `value` | 초기 텍스트 | 텍스트|
+- &#60;input type="checkbox | radio">
+  - 선택형 요소: 체크박스, 라디오버튼
+  - value는 이 항목이 선택되었을 때 웹 서버에 전송되는 값
+  - 속성에 selected 쓰면 초기 선택
+  - 라디오버튼은 name 속성 같은 것끼리 그룹 형성, 같은 name을 가진 라디오버튼 중 하나만 선택 가능
+- &#60;input type="color">
+  - 색 입력하는 컬러 다이얼로그
+  - 속성에 onchange= "document.body.style.color=this.value" 하면 사용자가 색 선택 가능
+- &#60;input type="month | week | date | time | datetime-local">
+  - 시간정보 입력 창
+  - value 속성에 초깃값 입력
+  - 드롭다운 버튼이나 스핀 버튼으로 변경 가능
+- &#60;input type="number">
+  - 스핀버튼으로 정교한 값 입력
+  ```html
+  <input type="number" min="0.0" max="10.0" step="0.5" />
+  ```
+- &#60;input type="range">
+  - 슬라이드 바로 대략적인 값 입력
+  ```html
+  <input type="range" min="0" max="100" />
+  ```
+- &#60;input type="email | url | tel | search">
+  - 이메일, URL, 전화번호, 검색키워드 등 형식 검사 기능을 가진 텍스트 입력 창
+  - placeholder 속성으로 힌트 추가
+  ```html
+  <input type="email" placeholder="“id@host" />
+  <input type=“url” placeholder=“http://”>
+  <input type="“tel”" placeholder="“010-1234-5678”" />
+  <input type="“search”" placeholder="검색어" />
+  ```
+- &#60;input type="button | reset | submit">
+  - 단순버튼, reset 버튼, submit 버튼
+  ```html
+  <input type="button" />
+  <input type="reset" value="취소" />
+  <input type="submit" value="전송" />
+  ```
+- &#60;textarea>
+  - 태그 사이에 초기 출력될 텍스트 입력
+    | 속성 | 의미 | 값 |
+    | ---------- | :--------------------------------------------------: | -----------------------: |
+    | `cols` | 열 개수 | 숫자|
+    | `rows` | 행 개수 | 숫자|
+    | `name` | 요소 이름 | 텍스트|
+    | `wrap` | 줄바꿈 | `OFF, HARD, SOFT` |
+- &#60;datalist>
+
+  - 목록 리스트를 작성하는 태그
+  - &#60;option> 태그로 항목 하나 표현
+  - &#60;input> 태그의 list와 &#60;datalist> 태그의 id 일치시켜서 연결
+
+  ```html
+  나라 : <input type="text" list="countries" />
+  <datalist id="countries">
+    <option value="가나"></option>
+    <option value="스위스"></option>
+    <option value="브라질"></option>
+  </datalist>
+  ```
+
+- &#60;select>
+
+  - 드롭다운 리스트에 목록 출력, 목록을 선택하는 입력 방식
+  - &#60;option> 태그로 항목 하나 표현
+  - &#60;option> 태그의 속성에 selected 쓰면 초기 선택
+
+  ```html
+  <select name="china">
+    <option value="1">짜장면</option>
+    <!--value는 이 항목이 선택되었을 때 웹 서버에 전송되는 값 -->
+    <option value="2" selected>짬뽕</option>
+    <option value="3">탕수육</option>
+  </select>
+  ```
+
+- &#60;label>
+
+  - 캡션과 폼 요소를 한 단위로 묶음
+  - 캡션과 폼 요소를 모두 &#60;label> 태그 안에 넣을 수 도 있고,
+
+  ```html
+  <label>사용자 ID : <input type="text" /> </label>
+  ```
+
+  - 캡션만 &#60;label> 태그 안에 넣은 후 &#60;label>의 for와 폼요소의 id 연결할 수도 있음
+
+  ```html
+  <label for="loginID"> 사용자 ID : </label> <input type="text" id="loginID" />
+  ```
+
+  - "checkbox"나 "radio" 같은 선택형 요소에 &#60;label> 태그 사용하면 캡션 텍스트나 이미지를 선택해도 폼 요소를 선택한 것으로 처리
+
+- 폼 요소 그룹핑
+  - &#60;fieldset> 안에 &#60;legend>로 제목입력해서 폼 요소 그룹핑
+  ```html
+  <fieldset>
+    <legend>회원정보</legend>
+    이메일 : <input type="email" /><br />
+    홈페이지 : <input type="url" /><br />
+    전화번호 : <input type="tel" />
+  </fieldset>
+  ```
+
 # 그 외 태그들
 
 - &#60;title>
@@ -208,9 +330,7 @@ _자동완성 : ! + Tab키_
   <li><a href="section2.html" target="right">추천 영화</a></li>
   <li><a href="section3.html" target="right">추천 여행지</a></li>
   <li>
-    <a href="http://lms.mju.ac.kr/ilos/main/main_form.acl" target="_blank"
-      >명지대학교 LMS</a
-    >
+    <a href="https://www.naver.com/" target="_blank">네이버</a>
   </li>
 </ul>
 <iframe
